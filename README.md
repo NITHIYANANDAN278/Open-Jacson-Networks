@@ -17,11 +17,58 @@ Visual components and Python
 
 
 ## Experiment:
+![image](https://github.com/NITHIYANANDAN278/Open-Jacson-Networks/assets/121784636/b0cc8999-ce23-4121-84b8-34d99d428538)
+![image](https://github.com/NITHIYANANDAN278/Open-Jacson-Networks/assets/121784636/8b4dad06-fa0d-4d44-aa35-59a0ce4e4d62)
+![image](https://github.com/NITHIYANANDAN278/Open-Jacson-Networks/assets/121784636/c59ecf15-2a7d-4001-86b0-c48ca464758b)
+![image](https://github.com/NITHIYANANDAN278/Open-Jacson-Networks/assets/121784636/12fae52c-bc5b-4ef3-bd2f-7f8dd82db101)
+
+
+
 
 
 ## Program
+arr_time=float(input("Enter the mean inter arrival time of objects from Feeder (in secs): "))
+ser_time1=float(input("Enter the mean  inter service time of Lathe Machine 1 (in secs) :  "))
+ser_time2=float(input("Enter the mean  inter service time of Lathe Machine 2 (in secs) :  "))
+ser_time3=float(input("Enter the mean  inter service time of Lathe Machine 3 (in secs) :  "))
+Robot_time=float(input("Enter the Additional time taken for the Robot (in secs) :  "))
+lam=1/arr_time
+mu1=1/(ser_time1+Robot_time)
+mu2=1/(ser_time2+Robot_time)
+mu3=1/(ser_time3+Robot_time)
+print("-----------------------------------------------------------------------")
+print("Series Queues with infinite capacity- Open Jackson Network")
+print("-----------------------------------------------------------------------")
+if (lam <  mu1) and (lam <  mu2) and (lam <  mu3):
+    Ls1=lam/(mu1-lam)
+    Ls2=lam/(mu2-lam)
+    Ls3=lam/(mu3-lam)
+    Ls=Ls1+Ls2+Ls3
+    Lq1=Ls1-lam/mu1
+    Lq2=Ls2-lam/mu2
+    Lq3=Ls3-lam/mu3
+    Wq1=Lq1/lam
+    Wq2=Lq2/lam
+    Wq3=Lq3/lam
+    Ws=Ls/(3*lam)
+    print("Average number of objects in the system S1 : %0.2f "%Ls1)
+    print("Average number of objects in the system S2 : %0.2f "%Ls2)
+    print("Average number of objects in the system S3 : %0.2f "%Ls3)
+    print("Average number of objects in the overall system    : %0.2f "%Ls)
+    print("Average number of objects in the conveyor S1  :  %0.2f "%Lq1)
+    print("Average number of objects in the conveyor S2  :  %0.2f "%Lq2)
+    print("Average number of objects in the conveyor S3  :  %0.2f "%Lq3)
+    print("Average waiting time of an object in the conveyor S1 : %0.2f secs"%Wq1)
+    print("Average waiting time of an object in the conveyor S2 : %0.2f secs"%Wq2)
+    print("Average waiting time of an object in the conveyor S3 : %0.2f secs"%Wq3)
+else:
+    print("Warning! Objects Over flow will happen in the conveyor")
+print("----------------------------------------------------------------------")
 
 
 ## Output
+![image](https://github.com/NITHIYANANDAN278/Open-Jacson-Networks/assets/121784636/999d4c08-f374-4570-a72b-db10355ccd2f)
+
 
 ## Result
+The average number of material in the sysytem and in the conveyor and waiting time are successfully found.
